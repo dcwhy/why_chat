@@ -17,4 +17,6 @@ npm run serve
 cnpm i
 ```
 ### 运行app.js
+```
 node app.js
+```
