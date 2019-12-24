@@ -1,24 +1,20 @@
 # socket-chat
 
-## Project setup
+下载why_chat
 ```
-npm install
+git clone https://github.com/dcwhy/why_chat.git
 ```
-
-### Compiles and hot-reloads for development
+### 安装依赖
+```
+cnpm i
+```
+### 运行项目
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
+### 进入后端server文件夹
 ```
-npm run build
+cnpm i
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 运行app.js
+node app.js
