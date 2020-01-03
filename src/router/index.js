@@ -4,7 +4,9 @@ import Login from '../views/login/index.vue' // 登录
 import Register from '../views/register/index.vue' // 注册
 import News from '../views/news/index.vue'; // 消息
 import Friends from '../views/friends/index.vue' // 联系人
-
+import Space from '../views/space/index.vue' // 说说
+import Increase from '../views/increase/index.vue' // 添加好友
+import Room from '../views/room/index.vue' // 聊天房间
 
 Vue.use(VueRouter);
 
@@ -28,10 +30,26 @@ const routes = [
         path: '/friends',
         name: 'friends',
         component: Friends,
+    },
+    {
+        path: '/space',
+        name: 'space',
+        component: Space,
+    },
+    {
+        path: '/increase',
+        name: 'increase',
+        component: Increase,
+    },
+    {
+        path: '/room',
+        name: 'room',
+        component: Room,
     }
 ];
 
 const router = new VueRouter({
+    mode: 'history',
     routes,
 });
 

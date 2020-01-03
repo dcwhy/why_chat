@@ -1,6 +1,6 @@
 <template>
     <van-nav-bar :title='title'>
-        <van-icon name="plus" slot="right" />
+        <van-icon @click="showadd()" name="plus" slot="right" />
         <img @click="showxx()" class="headimg" src="https://img.yzcdn.cn/vant/logo.png" slot="left" />
     </van-nav-bar>
 </template>
@@ -10,7 +10,8 @@ export default {
         return {
             title: '消息',
             count: 0,
-            isLoading: false
+            isLoading: false,
+            show: false
         }
     },
     methods: {
@@ -23,6 +24,9 @@ export default {
         },
         showxx() {
             this.$parent.show = true
+        },
+        showadd() {
+            this.$parent.showad = true
         }
     }
 }
@@ -35,5 +39,8 @@ export default {
     }
     .van-nav-bar__left{
         bottom: -5px;
+    }
+    .van-nav-bar{
+        background-color: cyan;
     }
 </style>

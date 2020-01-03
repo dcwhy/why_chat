@@ -2,14 +2,7 @@
 <template>
     <div class="register">
         <!-- 导航 -->
-        <van-nav-bar
-            title="注册"
-            left-text="返回"
-            left-arrow
-            @click-left="onClickLeft"
-            class="nav_bar"
-        >
-        </van-nav-bar>
+        <Goback ref="back" />
         <!-- 输入框 -->
         <van-cell-group style="width:100%;margin:50px auto;">
             <van-field
@@ -51,7 +44,7 @@ export default {
         }
     },
     mounted(){
-        
+        this.$refs.back.title = '注册'
     },
     methods: {
         async loginClick() {
@@ -67,9 +60,6 @@ export default {
             } else {
                 this.$notify({ type: 'warning', message:data.message,duration: 2000 });
             }
-        },
-        onClickLeft() {
-            window.history.go(-1);
         }
     }
 }

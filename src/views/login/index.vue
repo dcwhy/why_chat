@@ -37,22 +37,30 @@ export default {
                 this.username = this.getUsers.username
                 this.password = this.getUsers.password
             }
-            this.data = this.getUsers
         },
+        // 登录
         async loginClick() {
             const obj = {
                 username: this.username,
                 password: this.password
             }
             const { data } = await Login(obj)
+            this.data = data
             if( data.code === 200 ) {
                 this.$notify({ type: 'success', message: data.msg, duration: 2000 });
-                localStorage.setItem('users', JSON.stringify(obj))
+                const objlist = {
+                    avatar: this.data.data,
+                    username: this.username,
+                    password: this.password,
+                    id: data.id
+                }
+                localStorage.setItem('users', JSON.stringify(objlist))
                 this.$router.push({ path: '/news' });
             } else {
                 this.$notify({ type: 'warning', message:data.message,duration: 2000 });
             }
         },
+        // 注册
         registerClick() {
             this.$router.push({ path: '/register' });
         }

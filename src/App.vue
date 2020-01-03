@@ -5,7 +5,7 @@
     <van-skeleton title avatar :row="3" :loading="loading" />
       <van-tabbar-item icon="chat-o"><router-link to="/news">消息</router-link></van-tabbar-item>
       <van-tabbar-item icon="friends-o"><router-link to="/friends">联系人</router-link></van-tabbar-item>
-      <van-tabbar-item icon="smile-comment-o"><router-link to="/friends">说说</router-link></van-tabbar-item>
+      <van-tabbar-item icon="smile-comment-o"><router-link to="/space">说说</router-link></van-tabbar-item>
     </van-tabbar>
     <transition :name="transitionName">
       <keep-alive :include="keepAlive">
@@ -41,7 +41,9 @@ export default {
     this.loading = false;
     this.getUsers = localStorage.getItem('users')
     if(this.getUsers){
-      this.$router.push({ path: '/news' });
+      if(window.location.href === 'http://localhost:8080/') {
+        this.$router.push({ path: '/news' });
+      }
     } else {
       this.$router.push({ path: '/' });
     }
@@ -78,7 +80,7 @@ export default {
    }
    .van-tabbar-item__text{
      position: absolute;
-     top: 35px;
+     top: 30px;
      a{
        display: inline-block;
        margin-top: -25px;
@@ -88,5 +90,14 @@ export default {
      a:hover{
        color: #1989FA;
      }
+   }
+   .van-tabbar{  
+     background-color: cyan !important;
+   }
+   .van-tabbar-item{
+         padding-bottom: 10px;
+   }
+   .van-tabbar-item--active:hover{
+     background-color: rgb(0, 250, 250);
    }
 </style>
